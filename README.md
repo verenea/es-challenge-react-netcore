@@ -1,45 +1,29 @@
-# Search Page Exercise
+# ES Software Search Challenge
 
-This project is a React SPA to demonstrate the ability to quickly set up a frontend application. The requirements were to create a minimal, workable search page using an API exposed by the ([Algolia](https://www.algolia.com/)) search engine. 
+This project is a small React/ASP.NET Core SPA app to demonstrate the ability to quickly set up an application using front- and backend principles. The requirements were to create a minimal, workable search page that will return results from a static local dataset of software versions that are greater than the input provided by the user.
 
-## Get started
+## Prerequirements
 
-To run this project locally, install the dependencies and run the local server:
+* Visual Studio 2019+
+* .NET Core SDK
 
-```sh
-npm install
-npm start
-```
+## How To Run
 
-Alternatively, you may use [Yarn](https://http://yarnpkg.com/):
-
-```sh
-yarn
-yarn start
-```
-
-Open http://localhost:3000 to see the app.
-
-
-## Notes
-
-With the provided api-key ("search-only" I believe), a number of features that I would like to implement -- such as faceted Filters and custom Ranking/Scoring -- appear to be inaccessible or not currently configured. Those settings upon the target index may be managed via an account dashboard or by using `index.setSettings()`, which some users claim to be inaccessible from the JS frontend client version of the InstantSearch api. I will try to find out more information to see if I'm missing some fundamental understanding.
-
-- React-router is used in conjunction with `searchState` to enable search history quasi-routing.
-- Material-UI 5.0 is integrated with connected components to enhance component design and functionality
-- The latest version of React (17) was used, along with Hooks to manage component state
-- A light/dark-mode theme toggle was added to demonstrate context/provider usage
-- In lieu of a product image, which is preferable, a barcode was utilized for some graphical distinction
-- Typically, a .env file would not have been source-controlled in the repo, but for the sake of this exercise, it is needed for those who need to run the project locally
+* Open solution in Visual Studio
+* Run the application. 
+* The necessary client dependencies should automatically install the first run, so this will take a moment the first go-round. Alternatively you could cd into ClientApp folder and run `npm install` first.
 
  
 ## Todo
 
-- Convert hit details dialog to a routable Detail Page (based off of productId)
-- Connect Pager and PageSize dropdown components to a MUI-d version, as they're currently the default InstantSearch version
-- Integrate an `<aside>` element that will house proper filtering of Categories, Brand, Tags, etc. This could be done with a customized solution where results are parsed to create possible filters. However, this would have been sort of an anti-pattern since the other widgets being utilized are able to consume the query hits in a manner that is officially documented by Algolia and can seemlessly interface with the search engine during fetch/response 
-- Get a better picture of capabilities/limitations for the provided exercise api key to see if faceted results are even possible
-- Related to the previous bullet, the search rankings/results really need to be manipulated and configured to display more relevant hits
-- Integrate Webpack for finer control of build-time settings, though the CRA react-scripts OOTB tandem work well for this scope
-- Find out how to resolve the Image partial paths that are returned with search hits data
-- Implement unit testing for components and expected behavior
+- Convert HomePage class and local state management to function with hooks
+- Restyle app with richer UI components
+- Implement graphical loader
+- Implement virtual scrolling or pagination (for future datasets of thousands)
+- Implement ordering feature (and other standard UI query interaction features, options)
+- Item detail hydration and display
+- Buffered on-demand search results for immediate results
+- Maybe integrate query library and database context framework (such as EF)
+- Design backend error handling schema
+- Implement unit testing on front and backend
+- Implement proper linting
